@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: '']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kose1n/python-test-jenkins.git']]])
             }
         }
         stage('Build') {
             steps {
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/kose1n/python-test-jenkins.git'
                 sh 'python3 ops.py'
             }
         }
